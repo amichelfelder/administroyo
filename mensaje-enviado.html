@@ -1,0 +1,126 @@
+<!Doctype HTML>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(window).scroll(function () {
+            var scroll = $(window).scrollTop();
+            if (scroll >= 200) {
+                $(".main-menu").addClass("main-menu-scroll");
+            } else {
+                $(".main-menu").removeClass("main-menu-scroll");
+            }
+        });
+    </script>
+    <!-- SCROLL ANIMATION -->
+    <script>
+        $(document).ready(function () {
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+
+                var target = this.hash;
+                var $target = $(target);
+
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 900, 'swing', function () {
+                    window.location.hash = target;
+                });
+            });
+        });
+    </script>
+      <!-- ACTIVE NAV -->
+      <script>
+            $(document).ready(function () {
+               $(document).on("scroll", onScroll);
+
+           });
+
+           function onScroll(event){
+               var scrollPosition = $(document).scrollTop();
+               $('.main-menu-items a').each(function () {
+               var currentLink = $(this);
+               var refElement = $(currentLink.attr("href"));
+               if (refElement.position().top <= scrollPosition 
+                   && refElement.position().top + refElement.height() > scrollPosition) {
+                   $('.main-menu-items a').removeClass("activado");
+                   currentLink.addClass("activado");
+               }
+               else{
+                   currentLink.removeClass("activado");
+               }
+               });
+           }
+       </script>
+       <!-- ACTIVE NAV CONTACTO -->
+       <script>
+           $(window).scroll(function() {
+           $(".contact-nav").removeClass("activado");
+           if($(window).scrollTop() + $(window).height() == $(document).height()) {
+               //you are at bottom
+               $(".main-menu-items a").removeClass("activado");
+               $(".contact-nav").addClass("activado");
+           }
+           });
+       </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd58a8AzZxe0Z4V3O8i6-jtIahLDy07O0&callback=initMap"></script>
+    <script src="informes.js"></script>
+    <script src="prensa.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <title>AdministroYo</title>
+</head>
+<body>
+    <div class="main-menu bg-blue">
+        <div class="main-menu-logo">
+            <a href="#home">
+                <img class="iso" src="img/iso.svg" alt="CN">
+                <img class="logo" src="img/logo.svg" alt="CN Finanzas">
+            </a>
+        </div>
+    </div>
+    <div id="mensaje-enviado">
+        <h3>Tu mensaje fue enviado con éxtio</h3>
+        <p>Gracias por tu interés en nuestro producto. Nos pondremos en contacto a la brevedad para responder sus consultas.</p>
+        <a href="index.html">Volver</a>
+    </div>
+    <div id="footer">
+        AdministroYo - 2019 - Buenos Aires
+    </div>
+</body>
+</html>
+<script>
+    var animateHTML = function() {
+        var elems;
+        var windowHeight;
+        function init() {
+        elems = document.querySelectorAll('.hidden');
+        windowHeight = window.innerHeight;
+        addEventHandlers();
+        checkPosition();
+        }
+        function addEventHandlers() {
+        window.addEventListener('scroll', checkPosition);
+        window.addEventListener('resize', init);
+        }
+        function checkPosition() {
+        for (var i = 0; i < elems.length; i++) {
+            var positionFromTop = elems[i].getBoundingClientRect().top;
+            if (positionFromTop - windowHeight <= 0) {
+            elems[i].className = elems[i].className.replace(
+                'hidden',
+                'fade-in-element'
+            );
+            }
+        }
+        }
+        return {
+        init: init
+        };
+    };
+    animateHTML().init();
+</script>

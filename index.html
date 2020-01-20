@@ -1,0 +1,299 @@
+<!Doctype HTML>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(window).scroll(function () {
+            var scroll = $(window).scrollTop();
+            if (scroll >= 200) {
+                $(".main-menu").addClass("main-menu-scroll");
+            } else {
+                $(".main-menu").removeClass("main-menu-scroll");
+            }
+        });
+    </script>
+    <!-- SCROLL ANIMATION -->
+    <script>
+        $(document).ready(function () {
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+
+                var target = this.hash;
+                var $target = $(target);
+
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 900, 'swing', function () {
+                    window.location.hash = target;
+                });
+            });
+        });
+    </script>
+      <!-- ACTIVE NAV -->
+      <script>
+            $(document).ready(function () {
+               $(document).on("scroll", onScroll);
+
+           });
+
+           function onScroll(event){
+               var scrollPosition = $(document).scrollTop();
+               $('.main-menu-items a').each(function () {
+               var currentLink = $(this);
+               var refElement = $(currentLink.attr("href"));
+               if (refElement.position().top <= scrollPosition 
+                   && refElement.position().top + refElement.height() > scrollPosition) {
+                   $('.main-menu-items a').removeClass("activado");
+                   currentLink.addClass("activado");
+               }
+               else{
+                   currentLink.removeClass("activado");
+               }
+               });
+           }
+       </script>
+       <!-- ACTIVE NAV CONTACTO -->
+       <script>
+           $(window).scroll(function() {
+           $(".contact-nav").removeClass("activado");
+           if($(window).scrollTop() + $(window).height() == $(document).height()) {
+               //you are at bottom
+               $(".main-menu-items a").removeClass("activado");
+               $(".contact-nav").addClass("activado");
+           }
+           });
+       </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd58a8AzZxe0Z4V3O8i6-jtIahLDy07O0&callback=initMap"></script>
+    <script src="informes.js"></script>
+    <script src="prensa.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <title>AdministroYo</title>
+</head>
+<body>
+    <div class="main-menu">
+        <div class="main-menu-logo">
+            <a href="#home">
+                <img class="iso" src="img/iso.svg" alt="CN">
+                <img class="logo" src="img/logo.svg" alt="CN Finanzas">
+            </a>
+        </div>
+        <div class="main-menu-items">
+            <a href="#home" class="activado">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#administroyo">Qué es AdministroYo</a>
+            <a href="#planes">Planes</a>
+            <a href="#mision">Misión</a>
+            <a href="#contacto" class="contact-nav">Contacto</a>
+        </div>
+        <script>
+            $(window).scroll(function() {    
+                var scroll = $(window).scrollTop();
+    
+                if (scroll >= 200) {
+                    $(".main-menu").addClass("main-menu-scroll");
+                } else {
+                    $(".main-menu").removeClass("main-menu-scroll");
+                }
+            });
+        </script>
+    </div>
+    <table id="home">
+        <tr>
+            <td>
+                <img class="home-logo hidden" src="img/logo.svg" alt="CN Finanzas">
+                <!-- <span class="hidden">texto</span>    -->
+                <p class="home-text hidden">
+                    Convertimos la administración de consorcio
+                    <br>
+                    en una actividad intuitiva, simple y segura.
+                </p>
+            </td>
+        </tr>
+    </table>
+    <div id="servicios">
+        <div class="section-title">
+            <h3>Servicios</h3>
+        </div>
+        <div class="section-content">
+            <div class="servicios-item hidden">
+                <img src="img/gestion.svg" alt="">
+                <div class="servicio-title">
+                    Gestion de consorcios, dominios/
+                    UF, proveedores.
+                </div>
+            </div>
+            <div class="servicios-item hidden">
+                <img src="img/gastos.svg" alt="">
+                <div class="servicio-title">
+                    Control de gastos
+                </div>
+            </div>
+            <div class="servicios-item hidden">
+                <img src="img/movbancarios.svg" alt="">
+                <div class="servicio-title">
+                    Control y gestión de
+                    movimientos bancarios.
+                </div>
+            </div>
+            <div class="servicios-item hidden">
+                <img src="img/conciliacion.svg" alt="">
+                <div class="servicio-title">
+                    Conciliación automática.
+
+                </div>
+            </div>
+            <div class="servicios-item hidden">
+                <img src="img/reportes.svg" alt="">
+                <div class="servicio-title">
+                    Reportes
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="administroyo">
+        <div class="administroyo-img-container">
+        </div>
+        <div class="administroyo-container">
+            <h3>Qué es AdministrorYo?</h3>
+            <p>AdministroYo es un sistema de gestión integral intuitivo, seguro y eficiente.</p>
+            <p>
+                <b>
+                    Está diseñado específicamente para las administraciones de consorcios y/o de barrios privados cualquiera sea su tamaño.
+                </b>
+            </p>
+            <p>
+                Encontrarán en él herramientas de gran utilidad para administraciones pequeñas, medianas e incluso las más grandes, cualquiera sea su tipo: Honoraria, onerosa, gratuita o voluntaria.
+            </p>
+            <p>
+                Tareas diarias que pueden resultar complejas, dentro del sistema se vuelven ágiles, prácticas y seguras.
+            </p>
+        </div>
+    </div>
+    <div id="planes">
+        <div class="section-title">
+            <h3>Planes</h3>
+        </div>
+        <div class="planes-container">
+            <div class="plan-container hidden">
+                <h2>Gratuito</h2>
+                <p>Pensado para administradores independientes y privados.</p>
+                <p class="last-text">
+                    <b>Hasta 20 unidades funcionales</b>
+                </p>
+                <a href="#contacto" class="plan-button">Pedir más info</a>
+            </div>
+            <div class="plan-container hidden">
+                <h2>Básico</h2>
+                <p>Para administraciones pequeñas y medianas.</p>
+                <p class="last-text">
+                    <b>Hasta 200 unidades funcionales</b>
+                </p>
+                <a href="#contacto" class="plan-button">Pedir más info</a>
+            </div>
+            <div class="plan-container hidden">
+                <h2>Premium</h2>
+                <p>Ideal para grandes administraciones.</p>
+                <p class="last-text">
+                    <b>Más de 200 unidades funcionales</b>
+                </p>
+                <a href="#contacto" class="plan-button">Pedir más info</a>
+            </div>
+        </div>
+    </div>
+    <div id="mision">
+        <div class="section-title">
+            <h3>Nuestra misión</h3>
+        </div>
+        <div class="mision-text">
+                Brindamos soluciones informáticas, focalizadas en la optimización de tareas criticas para diferentes modelos de negocio. <b>Nuestro énfasis está puesto en la mejora de la productividad,</b> la mejor experiencia del usuario y un diseño eficiente y escalable en términos de arquitectura de la información.
+                Nuestros recursos humanos son nuestros recursos más valiosos. <b>Trabajamos día a día para conseguir la mayor satisfacción de nuestro personal.</b> Creemos fuertemente en que los mejores resultados son obtenidos desde la sinergia alcanzada por grupos de trabajo comprometidos y motivados.                
+                Buscamos establecer con nuestros clientes alianzas y vínculos que perduren en el tiempo. <b>Gracias al uso de metodologías ágiles e implementación de filosofías de mejora continua,</b> logramos estar en un constante crecimiento y generación de valor para nuestros clientes.
+        </div>
+
+    </div>
+    <div id="contacto">
+        <div class="contact-text-container">
+            <h3>
+                    Querés saber más?
+            </h3>
+            <p class="contact-text">
+                    Contactanos para conocer más sobre el producto, si querés una demo o si tenés alguna consulta. Te responderemos a la brevedad.
+            </p>
+            <a href="tel:++5491137968556"><span>T:</span>11 3796 8556</a>
+            <a href="mailto:info@administroyo.com"><span>M:</span>info@administroyo.com</a>
+        </div>
+        <div class="contact-form-container">
+            <form action="mail.php" method="POST">
+                <div class="input-container">
+                    <label for="Nombre">Nombre</label>
+                    <input type="text" name="Nombre">
+                </div>
+                <div class="input-container">
+                    <label for="Email">Email</label>
+                    <input type="mail" name="Email">
+                </div>
+                <div class="input-container">
+                    <label for="Telefono">Teléfono</label>
+                    <input type="tel" name="Telefono">
+                </div>
+                <div class="select-container">
+                    <label for="Administrador">Sos administrador?</label>
+                    <select name="select">
+                        <option value="No soy administrador">No soy administrador.
+                            </option>
+                        <option value="Menos de 10 consorcios">Soy administrador de menos de 10 consorcios.
+                            </option>
+                        <option value="Entre 10 y 30 consorcios">Soy administrador entre 10 y 30 consorcios.
+                            </option>
+                        <option value="Más de 30 consorcios">Soy admin de mas de 30 consorcios.</option>
+                    </select>
+                </div>
+                <div class="input-container">
+                    <label for="Mensaje">Mensaje</label>
+                    <textarea name="Mensaje" rows="10"></textarea>
+                </div>
+                <button class="submit-button" type="submit" value="Submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <div id="footer">
+        AdministroYo - 2019 - Buenos Aires
+    </div>
+</body>
+</html>
+<script>
+    var animateHTML = function() {
+        var elems;
+        var windowHeight;
+        function init() {
+        elems = document.querySelectorAll('.hidden');
+        windowHeight = window.innerHeight;
+        addEventHandlers();
+        checkPosition();
+        }
+        function addEventHandlers() {
+        window.addEventListener('scroll', checkPosition);
+        window.addEventListener('resize', init);
+        }
+        function checkPosition() {
+        for (var i = 0; i < elems.length; i++) {
+            var positionFromTop = elems[i].getBoundingClientRect().top;
+            if (positionFromTop - windowHeight <= 0) {
+            elems[i].className = elems[i].className.replace(
+                'hidden',
+                'fade-in-element'
+            );
+            }
+        }
+        }
+        return {
+        init: init
+        };
+    };
+    animateHTML().init();
+</script>
